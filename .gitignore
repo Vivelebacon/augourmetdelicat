@@ -10,3 +10,7 @@ download-assets.ps1
 vite.config.js
 vite.config.d.ts
 *.tsbuildinfo
+
+# The repo-root .gitignore ignores *.png/*.jpg globally; force-track our
+# deliverable site assets (logos, photos, partner logos, favicons).
+!public/**
