@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  background: #fbf8f2;
+  color: #14100f;
+  font-family: 'Jost', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: #cc3366;
+  color: #fff;
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans uppercase tracking-eyebrow text-[11px] font-medium;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-sans text-[12px] font-medium uppercase tracking-[0.18em]
+           px-7 py-4 transition-all duration-500 ease-cinematic cursor-pointer;
+  }
+  .btn-primary {
+    @apply btn bg-framboise text-white hover:bg-framboise-deep;
+  }
+  .btn-ghost {
+    @apply btn border border-white/40 text-white hover:bg-white hover:text-navy;
+  }
+  .btn-dark {
+    @apply btn bg-navy text-cream hover:bg-framboise;
+  }
+  .link-underline {
+    @apply relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0
+           after:bg-current after:transition-all after:duration-500 hover:after:w-full;
+  }
+}
+
+/* thin ornamental divider drawn in CSS (no asset dependency) */
+.divider-rule {
+  position: relative;
+  height: 1px;
+  width: 64px;
+  background: currentColor;
+  opacity: 0.55;
+}
+.divider-rule::before,
+.divider-rule::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+.divider-rule::before {
+  left: -12px;
+}
+.divider-rule::after {
+  right: -12px;
+}
+
+.legal h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  color: #001c38;
+  margin: 2.25rem 0 0.5rem;
+}
+.legal p,
+.legal li {
+  color: rgba(20, 16, 15, 0.75);
+  line-height: 1.75;
+  margin-top: 0.5rem;
+}
+.legal a {
+  color: #cc3366;
+  text-decoration: underline;
+}
+.legal ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.text-shadow-hero {
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.55), 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
